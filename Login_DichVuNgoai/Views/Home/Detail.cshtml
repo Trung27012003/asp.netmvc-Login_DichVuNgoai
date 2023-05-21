@@ -1,0 +1,66 @@
+﻿@model Login_DichVuNgoai.Models.User
+
+@{
+    ViewData["Title"] = "Detail";
+    List<ProviderLogin> lstProvider = ViewBag.Provider;
+    List<ExternalLogin> lstEx = ViewBag.Exists;
+}
+
+<div>
+    <h4>Chào @Model.Username</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.UserId)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.UserId)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Username)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Username)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Password)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Password)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.EmailConfirmed)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.EmailConfirmed)
+        </dd>
+        <dt class = "col-sm-2">
+            ProviderName
+        </dt>
+
+        @foreach (var item in lstProvider)
+        {
+                var ex =  lstEx.Count(c => c.ProviderId == item.ProviderId);
+                string urlConnect = "Connect" + item.ProviderName + "/";
+                string urlUnConnect = "UnConnect" + item.ProviderName + "/";
+                @if (ex==1)
+                {        
+                   <div >
+                        <a class="btn btn-danger" href="@urlUnConnect">Hủy liên kết @item.ProviderName</a>
+                   </div>
+                }else
+                {
+                    <div >
+                        
+                        <a class="btn btn-success" href="@urlConnect">Liên kết @item.ProviderName</a>
+                   </div>
+                }              
+        }
+    </dl>
+</div>
