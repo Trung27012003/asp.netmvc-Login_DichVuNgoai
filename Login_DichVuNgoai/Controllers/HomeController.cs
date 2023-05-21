@@ -49,6 +49,7 @@ namespace Login_DichVuNgoai.Controllers
             }
             else
             {
+                // đáng ra là redirect sang form bắt user nhập thông tin
                 var user = new User();// tạo user mới
                 user.Username = email;
                 user.Email = email;
