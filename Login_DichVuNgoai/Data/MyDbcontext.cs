@@ -17,14 +17,14 @@ namespace Login_DichVuNgoai.Data
         public DbSet<User> Users { get; set; }
         public DbSet<ExternalLogin> ExternalLogins { get; set; }
         public DbSet<ProviderLogin> ProviderLogins { get; set; }
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            optionsBuilder.UseSqlServer(@"Data Source=TRUNG2701;Initial Catalog=Login_DichVuNgoai;Integrated Security=True");
-        }
+        //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        //{
+        //    optionsBuilder.UseSqlServer(@"Data Source=TRUNG2701;Initial Catalog=Login_DichVuNgoai;Integrated Security=True");
+        //}
 
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
-            modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
-        }
+        //protected override void OnModelCreating(ModelBuilder modelBuilder)
+        //{
+        //    modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
+        //}
     }
 }

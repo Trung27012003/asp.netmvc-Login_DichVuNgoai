@@ -47,18 +47,15 @@
         @foreach (var item in lstProvider)
         {
                 var ex =  lstEx.Count(c => c.ProviderId == item.ProviderId);
-                string urlConnect = "Connect" + item.ProviderName + "/";
-                string urlUnConnect = "UnConnect" + item.ProviderName + "/";
                 @if (ex==1)
                 {        
-                   <div >
-                        <a class="btn btn-danger" href="@urlUnConnect">Hủy liên kết @item.ProviderName</a>
+                    <div >
+                        @Html.ActionLink("DisConnect " + item.ProviderName, "DisConnect" + item.ProviderName, "Home",new { id = Model.UserId},new {@class="btn btn-danger" })
                    </div>
                 }else
                 {
                     <div >
-                        
-                        <a class="btn btn-success" href="@urlConnect">Liên kết @item.ProviderName</a>
+                        @Html.ActionLink("Connect " + item.ProviderName,"ConnectWith" + item.ProviderName,"Home", new { id = Model.UserId},new {@class="btn btn-success" })
                    </div>
                 }              
         }
